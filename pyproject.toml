@@ -9,7 +9,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.9"
 ipykernel = "^6.17.1"
-pandas = "^1.5.2"
+pandas = ">=1.5.2"
+msions = ">=0.2.0"
+pymzml = ">=2.5.2"
 
 [tool.poetry.dev-dependencies]
 
