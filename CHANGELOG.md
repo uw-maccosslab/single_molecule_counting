@@ -4,4 +4,4 @@
 
 ## v0.0.1 (06/12/2022)
 
-- First release of `single-mol`!
+- First release of `single_mol`!

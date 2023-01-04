@@ -1,11 +1,11 @@
-# single-mol
+# single_mol
 
 A package to accompany the Single Molecule Counting Perspective.
 
 ## Installation
 
 ```bash
-$ pip install single-mol
+$ pip install single_mol
 ```
 
 ## Usage
@@ -18,8 +18,8 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`single-mol` was created by Danielle A. Faivre. It is licensed under the terms of the Apache License 2.0 license.
+`single_mol` was created by Danielle A. Faivre. It is licensed under the terms of the Apache License 2.0 license.
 
 ## Credits
 
-`single-mol` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+`single_mol` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).

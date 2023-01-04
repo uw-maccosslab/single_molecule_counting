@@ -40,10 +40,10 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `single-mol` for local development.
+Ready to contribute? Here's how to set up `single_mol` for local development.
 
-1. Download a copy of `single-mol` locally.
-2. Install `single-mol` using `poetry`:
+1. Download a copy of `single_mol` locally.
+2. Install `single_mol` using `poetry`:
 
     ```console
     $ poetry install
@@ -69,5 +69,5 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the `single-mol` project is released with a
+Please note that the `single_mol` project is released with a
 Code of Conduct. By contributing to this project you agree to abide by its terms.

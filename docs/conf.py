@@ -6,7 +6,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u"single-mol"
+project = u"single_mol"
 copyright = u"2022, Danielle A. Faivre"
 author = u"Danielle A. Faivre"
 
