@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "single_mol"
-version = "0.0.2"
+version = "0.1.0"
 description = "A package to accompany the Single Molecule Counting Perspective."
 authors = ["Danielle A. Faivre"]
 license = "Apache License 2.0"
