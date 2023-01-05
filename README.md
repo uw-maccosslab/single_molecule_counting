@@ -10,7 +10,13 @@ $ pip install single_mol
 
 ## Usage
 
-- TODO
+`single_mol` can be used to recreate figures from the Single Molecule Counting Perspective.
+
+See the [documentation](https://single_mol.readthedocs.io/en/latest/example.html) for examples.
+
+## Files
+
+Because some files are too large for GitHub, the files needed to recreate the figures can be found on [Panorama](https://panoramaweb.org/Single_Molecule_Counting.url).
 
 ## Contributing
 
