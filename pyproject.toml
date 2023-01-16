@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "single_mol"
-version = "0.1.0"
+version = "0.1.1"
 description = "A package to accompany the Single Molecule Counting Perspective."
 authors = ["Danielle A. Faivre"]
 license = "Apache License 2.0"
@@ -10,7 +10,7 @@ readme = "README.md"
 python = ">=3.9"
 pymzml = ">=2.5.2"
 pandas = ">=1.5.2"
-msions = ">=0.3.0"
+msions = ">=0.3.1"
 ipykernel = ">=6.19.4"
 
 [tool.poetry.dev-dependencies]

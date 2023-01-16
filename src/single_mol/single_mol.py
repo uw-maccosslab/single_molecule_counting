@@ -1,3 +1,7 @@
+"""
+This module contains functions that can be used 
+to recreate figures from the Single Molecule Counting Perspective.
+"""
 import pymzml
 import pandas as pd
 import msions.utils as msutils
@@ -91,9 +95,9 @@ def fig2a(mzml_file: str, bin_rt_list: List[float], bin_mz_list: List[float], ma
     plt.show()
 
 
-def fig2a_insert(kro_file: str, elib_file: str):
+def fig2c_insert(kro_file: str, elib_file: str):
     """
-    Creates the Figure 2a histogram insert using a Kronik file and EncyclopeDIA elib.
+    Creates the Figure 2c histogram insert using a Kronik file and EncyclopeDIA elib.
 
     Parameters
     ----------
@@ -104,8 +108,8 @@ def fig2a_insert(kro_file: str, elib_file: str):
 
     Examples
     -------
-    >>> from single_mol import fig2a_insert
-    >>> fig2a_insert("test.kro", "test.elib")
+    >>> from single_mol import fig2c_insert
+    >>> fig2c_insert("test.kro", "test.elib")
     """  
     # read in the Kronik output
     kro_df = kro.simple_df(kro_file)
@@ -162,24 +166,34 @@ def fig2a_insert(kro_file: str, elib_file: str):
     ax.hist(id_int, bins=bin_int_list, histtype="bar", color="#1f77b4", alpha=0.8)
 
     # set x-axis parameters
-    plt.xlabel("log10(Ions/Second)", fontsize=18)
-    plt.xticks(fontsize=14)
+    plt.xlabel("log10(Ions/Second)", fontsize=40)
+    plt.xticks(np.arange(4,11,2), fontsize=30)
 
     # set y-axis parameters
-    ax.set_ylabel("Counts",fontsize=18)
-    plt.yticks(fontsize=14)
+    ax.set_ylabel("Counts", fontsize=40)
+    ax.set_yticks(np.arange(0,2001,500))
+    plt.yticks(fontsize=30)
 
     # create a second axis
     ax2 = ax.twinx()
 
     # plot line of percent identifed
     # removed last edge to match array lengths
-    ax2.plot(bin_int_list[:-1], (id_counts/all_counts)*100, color="red")
+    ax2.plot(bin_int_list[:-1], (id_counts/all_counts)*100, color="red", linewidth=4)
 
     # set second y-axis parameters
-    ax2.set_ylabel("Percent Identified", fontsize=18, rotation=270, color="red", labelpad=12)
+    ax2.set_ylabel("Percent Identified", fontsize=40, rotation=270, color="red", labelpad=30)
     ax2.set_ylim(0,101)
-    plt.yticks(fontsize=14)
+    ax2.set_yticks(np.arange(0,101,25))
+    plt.yticks(fontsize=30)
+
+    # edit spine thickness
+    ax.xaxis.set_tick_params(width=3)
+    ax.yaxis.set_tick_params(width=3)
+    ax2.yaxis.set_tick_params(width=3)
+    ax.spines['left'].set_linewidth(3)
+    ax.spines['right'].set_linewidth(3)
+    ax.spines['bottom'].set_linewidth(3)
 
     # despine top
     ax.spines['top'].set_visible(False)
@@ -429,10 +443,10 @@ def fig2c(mzml_file, hk_file, elib_file):
     joined_EV = pd.merge(ev_ms1_df, sum_id_ev_hk_df, how="outer", on=["scan_num"], suffixes=("_ms1","_id"))
 
     # find total ion current across all 
-    print("Total Ion Current (TIC): %.0f" % sum(ev_ms1_df.TIC))
+    print("Total Ion Current (TIC): %.4g" % sum(ev_ms1_df.TIC))
 
     # find identified total ion current
-    print("ID'd TIC: %.0f" % sum(sum_id_ev_hk_df.TIC))
+    print("ID'd TIC: %.2e" % sum(sum_id_ev_hk_df.TIC))
 
     # calculate ratio of identified ion current to total ion current
     print("%.1f%% of the signal" % float(sum(sum_id_ev_hk_df.TIC)/sum(ev_ms1_df.TIC)*100))
@@ -508,10 +522,10 @@ def fig2d(mzml_file, hk_file, elib_file):
     joined_EV = pd.merge(ev_ms1_df, sum_id_ev_hk_df, how="outer", on=["scan_num"], suffixes=("_ms1","_id"))
 
     # find total ions across all 
-    print("Total # of ions: %.0f" % sum(ev_ms1_df.ions))
+    print("Total # of ions: %.2e" % sum(ev_ms1_df.ions))
 
     # find identified ions
-    print("Ions mapped to peptides: %.0f" % sum(sum_id_ev_hk_df.ions))
+    print("Ions mapped to peptides: %.2e" % sum(sum_id_ev_hk_df.ions))
 
     # calculate ratio of identified ions to total ions
     print("%.1f%% of the signal" % float(sum(sum_id_ev_hk_df.ions)/sum(ev_ms1_df.ions)*100))
